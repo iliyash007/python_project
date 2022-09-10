@@ -8,9 +8,8 @@ COPY .env src
 COPY main.py src
 
 WORKDIR src
-RUN pip install --no-cache-dir -r requirements.txt
-RUN pip freeze > requirements.txt
-RUN pip install -r requirements.txt
+
+RUN python install -r requirements.txt
 
 EXPOSE 8081
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8081"]
