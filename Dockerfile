@@ -8,6 +8,7 @@ COPY .env src
 COPY main.py src
 
 WORKDIR src
+RUN pip freeze > requirements.txt
 RUN pip install -r requirements.txt
 
 EXPOSE 8081
